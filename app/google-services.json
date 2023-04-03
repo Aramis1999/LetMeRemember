@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "736226743460",
+    "project_id": "letmeremember-9e4a9",
+    "storage_bucket": "letmeremember-9e4a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:736226743460:android:9bc3126828c1e4a2720231",
+        "android_client_info": {
+          "package_name": "com.example.letmeremember"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "736226743460-ve7c523d5r482esfcjoastgtamqkbsq0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAB19fRTBIfqqw_LVKmeabBxK84UvL56y8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "736226743460-ve7c523d5r482esfcjoastgtamqkbsq0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

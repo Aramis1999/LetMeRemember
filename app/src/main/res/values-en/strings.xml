@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">LetMeRemember</string>
+
+    <!--    HOME-->
+    <string name="homeSubtitle" translatable="false">CREATE YOUR NOTES AND REMINDERS</string>
+    <string name="LoginButton" translatable="false">Log in</string>
+    <string name="SignUpButton" translatable="false">Sign up</string>
+    <string name="imageDescription" translatable="false">Home image</string>
+
+    <!--    Login-->
+    <string name="loginTitle" translatable="false">Welcome Back!!</string>
+    <string name="accountLabel" translatable="false">Login to your Account</string>
+    <string name="accountInput" translatable="false">Enter your username or email</string>
+    <string name="passwordInput" translatable="false">Enter your password</string>
+    <string name="loginCheckbox" translatable="false">Remember user</string>
+    <string name="forgotPassword" translatable="false">Forgot Password?</string>
+    <string name="googleLogIn" translatable="false">Sign in with Google</string>
+
+    <!--    SignUp-->
+    <string name="welcomeSignup" translatable="false">Welcome!</string>
+    <string name="signupTitle" translatable="false">Sign up to LetMeRemember App</string>
+    <string name="signupUser" translatable="false">Enter your username</string>
+    <string name="signupName" translatable="false">Enter your full name</string>
+    <string name="signupEmail" translatable="false">Enter your email</string>
+    <string name="signupPassword" translatable="false">Enter your password</string>
+    <string name="signupConfirmPassword" translatable="false">Confirm your password</string>
+    <string name="signUpCheckbox" translatable="false">By clicking Sign up, you agree to the Terms of service and Privacy policy of the LetMeRemember app</string>
+    <string name="successButton" translatable="false">Continue to Home</string>
+    <string name="successMessage" translatable="false">Registration entered correctly</string>
+    <string name="successResetMessage" translatable="false">Your password was updated correctly</string>
+
+    <!--    Reset password-->
+    <string name="resetPassword"><u>Recover your password</u></string>
+    <string name="step1">Step 1:</string>
+    <string name="next">Continue</string>
+</resources>
