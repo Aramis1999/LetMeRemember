@@ -30,9 +30,9 @@ class ResetPasswordEmailActivity : AppCompatActivity() {
                     .addOnCompleteListener { task ->
                         if (task.isSuccessful) {
                             Toast.makeText(this, "Email sent", Toast.LENGTH_SHORT).show()
-//                            var intent = android.content.Intent(this, MainActivity::class.java)
-//                            startActivity(intent)
-//                            finish()
+                            var intent = android.content.Intent(this, LoginActivity::class.java)
+                            startActivity(intent)
+                            finish()
                         }
                     }
             }
