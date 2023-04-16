@@ -14,6 +14,13 @@
         android:theme="@style/Theme.LetMeRemember"
         tools:targetApi="31">
         <activity
+            android:name=".AddGroupActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GroupActivity"
+            android:exported="false">
+        </activity>
+        <activity
             android:name=".ResetPasswordEmailActivity"
             android:exported="false" />
         <activity
@@ -31,11 +38,11 @@
         <activity
             android:name=".homeActivity"
             android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
     </application>
 

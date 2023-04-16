@@ -34,4 +34,10 @@
     <string name="resetPassword" translatable="false"><u>Recupera tu contraseña</u></string>
     <string name="step1" translatable="false">Paso 1:</string>
     <string name="next" translatable="false">Continuar</string>
+
+    <!--    Group-->
+    <string name="groupCreateTitle" translatable="false">Crear nuevo grupo</string>
+    <string name="groupEditTitle" translatable="false">Editar grupo</string>
+    <string name="groupName" translatable="false">nombre</string>
+    <string name="groupCreateButton" translatable="false">Enviar</string>
 </resources>
