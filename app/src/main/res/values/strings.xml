@@ -34,4 +34,10 @@
     <string name="resetPassword" translatable="false"><u>Recupera tu contraseña</u></string>
     <string name="step1" translatable="false">Paso 1:</string>
     <string name="next" translatable="false">Continuar</string>
+
+    <!--    Recycle Bin-->
+    <string name="recycletitle" translatable="false"><u>Papelera de Reciclaje</u></string>
+    <string name="contrecycle" translatable="false">Puedes recuperar las tarjetas que has eliminado sin querer o recuperar tarjetas que necesitas volver a recordar!</string>
+
+
 </resources>
