@@ -34,4 +34,11 @@
     <string name="resetPassword"><u>Recover your password</u></string>
     <string name="step1">Step 1:</string>
     <string name="next">Continue</string>
+
+
+    <!--    Recycle Bin-->
+    <string name="recycletitle" translatable="false"><u>Recycle Bin</u></string>
+    <string name="contrecycle" translatable="false">You can recover the cards that you have accidentally deleted or recover cards that you need to remember again!</string>
+    <string name="recyclerecuperar" translatable="false"><u>Recover</u></string>
+    <string name="recycledelete" translatable="false"><u>Delete</u></string>
 </resources>

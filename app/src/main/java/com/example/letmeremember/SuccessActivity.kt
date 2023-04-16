@@ -1,12 +1,9 @@
 package com.example.letmeremember
-
 import android.os.Bundle
 import android.text.SpannableString
 import android.text.style.UnderlineSpan
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-
-
 class SuccessActivity : AppCompatActivity() {
     private lateinit var successButton: TextView
     private lateinit var successText: TextView
