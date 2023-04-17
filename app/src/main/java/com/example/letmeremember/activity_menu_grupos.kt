@@ -1,7 +1,9 @@
 package com.example.letmeremember
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
+import android.view.MenuItem
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
@@ -12,6 +14,7 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.example.letmeremember.databinding.ActivityMenuGruposBinding
+import com.google.firebase.auth.FirebaseAuth
 
 class activity_menu_grupos : AppCompatActivity() {
 
@@ -45,6 +48,25 @@ class activity_menu_grupos : AppCompatActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.activity_menu_grupos, menu)
         return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_logout -> {
+                FirebaseAuth.getInstance().signOut().also {
+                    val intent = Intent(this@activity_menu_grupos, homeActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                }
+                return true
+            }
+            R.id.action_groups -> {
+                val intent = Intent(this@activity_menu_grupos, GroupActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     override fun onSupportNavigateUp(): Boolean {

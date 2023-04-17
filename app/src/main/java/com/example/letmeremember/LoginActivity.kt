@@ -65,9 +65,10 @@ class LoginActivity : AppCompatActivity() {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d("tag", "signInWithEmail:success")
                     val user = auth.currentUser
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, activity_menu_grupos::class.java)
                     intent.putExtra("user",user)
                     startActivity(intent)
+                    finish()
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w("Tag", "signInWithEmail:failure", task.exception)
@@ -111,9 +112,10 @@ class LoginActivity : AppCompatActivity() {
         val credential = GoogleAuthProvider.getCredential(account.idToken , null)
         auth.signInWithCredential(credential).addOnCompleteListener {
             if (it.isSuccessful){
-                val intent : Intent = Intent(this , MainActivity::class.java)
+                val intent : Intent = Intent(this , activity_menu_grupos::class.java)
                 intent.putExtra("user" , account)
                 startActivity(intent)
+                finish()
             }else{
                 Toast.makeText(this, it.exception.toString() , Toast.LENGTH_SHORT).show()
 

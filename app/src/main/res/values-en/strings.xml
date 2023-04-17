@@ -29,6 +29,7 @@
     <string name="successButton" translatable="false">Continue to Home</string>
     <string name="successMessage" translatable="false">Registration entered correctly</string>
     <string name="successResetMessage" translatable="false">Your password was updated correctly</string>
+    <string name="logOut" translatable="false">Log out</string>
 
     <!--    Reset password-->
     <string name="resetPassword"><u>Recover your password</u></string>
@@ -46,4 +47,7 @@
     <string name="contrecycle" translatable="false">You can recover the cards that you have accidentally deleted or recover cards that you need to remember again!</string>
     <string name="recyclerecuperar" translatable="false"><u>Recover</u></string>
     <string name="recycledelete" translatable="false"><u>Delete</u></string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_groups" translatable="false">groups CRUD</string>
 </resources>
