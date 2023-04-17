@@ -1,5 +1,7 @@
 # LetMeRemember
 
+![icono](https://user-images.githubusercontent.com/36349917/232392104-9e96592f-8284-4db9-a68d-6a5b6c9ee3ee.jpg)
+
 Integrantes DSM 01T:
 
 Kevin Ángel Galdámez Majano GM190372

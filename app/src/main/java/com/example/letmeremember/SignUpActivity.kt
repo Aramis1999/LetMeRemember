@@ -63,7 +63,7 @@ class SignUpActivity : AppCompatActivity() {
                         val newUser = User(user, name, email)
                         refUsers.child(auth.currentUser!!.uid).child("user").setValue(newUser)
                         val user = auth.currentUser
-                        val intent = Intent(this, SuccessActivity::class.java)
+                        val intent = Intent(this, activity_menu_grupos::class.java)
                         intent.putExtra("user", user)
                         intent.putExtra("previousActivity", "SignUpActivity")
                         startActivity(intent)

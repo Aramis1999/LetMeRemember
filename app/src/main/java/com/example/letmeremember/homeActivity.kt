@@ -48,7 +48,7 @@ class homeActivity : AppCompatActivity() {
     private fun checkUser() {
         val user = auth.currentUser
         if (user != null) {
-            val intent = Intent(this, MainActivity::class.java)
+            val intent = Intent(this, activity_menu_grupos::class.java)
             intent.putExtra("user", user)
             startActivity(intent)
             finish()
