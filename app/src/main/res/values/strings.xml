@@ -46,4 +46,16 @@
     <string name="contrecycle" translatable="false">Puedes recuperar las tarjetas que has eliminado sin querer o recuperar tarjetas que necesitas volver a recordar!</string>
     <string name="recyclerecuperar" translatable="false"><u>Recuperar</u></string>
     <string name="recycledelete" translatable="false"><u>Eliminar</u></string>
+    <string name="title_activity_menu_grupos">activity_menu_grupos</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_papelera">Papelera</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_recordatorio">Recordatorio</string>
 </resources>

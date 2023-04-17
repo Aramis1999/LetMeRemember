@@ -24,6 +24,17 @@
             android:name=".RecycleBin"
             android:exported="false" />
         <activity
+            android:name=".activity_menu_grupos"
+            android:exported="true"
+            android:label="@string/title_activity_menu_grupos"
+            android:theme="@style/Theme.LetMeRemember.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ResetPasswordEmailActivity"
             android:exported="false" />
         <activity
