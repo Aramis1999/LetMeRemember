@@ -21,6 +21,9 @@
             android:exported="false">
         </activity>
         <activity
+            android:name=".RecycleBin"
+            android:exported="false" />
+        <activity
             android:name=".ResetPasswordEmailActivity"
             android:exported="false" />
         <activity

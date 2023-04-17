@@ -40,4 +40,10 @@
     <string name="groupEditTitle" translatable="false">Edit group</string>
     <string name="groupName" translatable="false">name</string>
     <string name="groupCreateButton" translatable="false">Send</string>
+
+    <!--    Recycle Bin-->
+    <string name="recycletitle" translatable="false"><u>Recycle Bin</u></string>
+    <string name="contrecycle" translatable="false">You can recover the cards that you have accidentally deleted or recover cards that you need to remember again!</string>
+    <string name="recyclerecuperar" translatable="false"><u>Recover</u></string>
+    <string name="recycledelete" translatable="false"><u>Delete</u></string>
 </resources>
