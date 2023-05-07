@@ -15,6 +15,7 @@
     <string name="loginCheckbox" translatable="false">Recordar Usuario</string>
     <string name="forgotPassword" translatable="false">¿Olvidaste la Contraseña?</string>
     <string name="googleLogIn" translatable="false">Iniciar Sesion con Google</string>
+    <string name="githubLogIn" translatable="false">Iniciar Sesion con Github</string>
     <string name="your_web_client_id" translatable="false">AIzaSyAB19fRTBIfqqw_LVKmeabBxK84UvL56y8</string>
 
     <!--    SignUp-->
@@ -40,12 +41,12 @@
     <string name="groupEditTitle" translatable="false">Editar grupo</string>
     <string name="groupName" translatable="false">nombre</string>
     <string name="groupCreateButton" translatable="false">Enviar</string>
-    
+
     <!--    Recycle Bin-->
-    <string name="recycletitle" translatable="false"><u>Papelera de Reciclaje</u></string>
+    <string name="recycletitle" translatable="false">Papelera de Reciclaje</string>
     <string name="contrecycle" translatable="false">Puedes recuperar las tarjetas que has eliminado sin querer o recuperar tarjetas que necesitas volver a recordar!</string>
-    <string name="recyclerecuperar" translatable="false"><u>Recuperar</u></string>
-    <string name="recycledelete" translatable="false"><u>Eliminar</u></string>
+    <string name="recyclerecuperar" translatable="false">Recuperar</string>
+    <string name="recycledelete" translatable="false">Eliminar</string>
     <string name="title_activity_menu_grupos">activity_menu_grupos</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -55,9 +56,10 @@
     <string name="action_settings">Configuraciones</string>
     <string name="logOut">Cerrar sesión</string>
     <string name="action_groups" translatable="false">Grupos CRUD</string>
+    <string name="recycleCardName" translatable="false">Eliminaste:</string>
 
     <string name="menu_home">Home</string>
-    <string name="menu_papelera">Papelera</string>
+    <string name="menu_papelera">Papelera de Reciclaje</string>
     <string name="menu_slideshow">Slideshow</string>
     <string name="menu_recordatorio">Recordatorio</string>
 </resources>
