@@ -106,18 +106,33 @@
                 android:text="O"
                 android:gravity="center"
                 />
+
             <Button
                 android:id="@+id/loginGoogle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/white"
-                android:layout_marginHorizontal="30dp"
+                android:drawableLeft="@drawable/google_icon"
                 android:paddingVertical="15dp"
                 android:text="@string/googleLogIn"
                 android:textColor="@color/black"
-                android:drawableLeft="@drawable/google_icon"
+                android:textSize="15sp" />
+
+            <Button
+                android:id="@+id/loginGithub"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="30dp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="@color/white"
+                android:drawableLeft="@drawable/github_mark"
+                android:paddingVertical="15dp"
+                android:text="@string/githubLogIn"
+                android:textColor="@color/black"
                 android:textSize="15sp" />
         </LinearLayout>
     </ScrollView>

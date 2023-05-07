@@ -21,11 +21,14 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
+import com.google.firebase.auth.OAuthProvider
 
 lateinit var emailInput:EditText
 lateinit var passwordInput:EditText
 lateinit var buttonLogin: Button
 lateinit var googleButton: Button
+lateinit var LoginGithub: Button
+
 lateinit var forgotPasswordButton: TextView
 lateinit var mGoogleSignInClient: GoogleSignInClient
 val Req_Code:Int=123
@@ -39,11 +42,27 @@ class LoginActivity : AppCompatActivity() {
         passwordInput=findViewById(R.id.loginPassword)
         buttonLogin=findViewById(R.id.loginButton)
         googleButton=findViewById(R.id.loginGoogle)
+        LoginGithub=findViewById(R.id.loginGithub)
         forgotPasswordButton=findViewById(R.id.forgotPasswordButton)
-
+        val provider = OAuthProvider.newBuilder("github.com")
         forgotPasswordButton.setOnClickListener {
             var intent = android.content.Intent(this, ResetPasswordEmailActivity::class.java)
             startActivity(intent)
+        }
+
+        LoginGithub.setOnClickListener {
+            auth.startActivityForSignInWithProvider(this, provider.build())
+                .addOnSuccessListener {
+                    Log.d("tag", "signInWithEmail:success")
+                    val user = auth.currentUser
+                    val intent = Intent(this, activity_menu_grupos::class.java)
+                    intent.putExtra("user",user)
+                    startActivity(intent)
+                    finish()
+                }
+                .addOnFailureListener {
+                    Toast.makeText(this, "Failed", Toast.LENGTH_SHORT).show()
+                }
         }
 
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)

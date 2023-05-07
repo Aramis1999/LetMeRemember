@@ -13,8 +13,9 @@
         android:id="@+id/tituloPantallaInicial"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Papelera:"
+        android:text="@string/recycletitle"
         android:textSize="20sp"
+        android:layout_marginLeft="5sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
@@ -25,9 +26,10 @@
         android:id="@+id/subtituloPantalla"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Puedes recuperar las tarjetas que has eliminado sin querer o necesitas recordar de nuevo!"
+        android:text="@string/contrecycle"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.18"
+        android:layout_marginHorizontal="25dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tituloPantallaInicial" />
 
@@ -39,7 +41,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/subtituloPantalla" />
+        app:layout_constraintTop_toBottomOf="@+id/subtituloPantalla" >
+        <requestFocus />
+    </SearchView>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_PapeleraList"

@@ -16,6 +16,7 @@
     <string name="loginCheckbox" translatable="false">Remember user</string>
     <string name="forgotPassword" translatable="false">Forgot Password?</string>
     <string name="googleLogIn" translatable="false">Sign in with Google</string>
+    <string name="githubLogIn" translatable="false">Sign in with Github</string>
 
     <!--    SignUp-->
     <string name="welcomeSignup" translatable="false">Welcome!</string>
@@ -45,9 +46,12 @@
     <!--    Recycle Bin-->
     <string name="recycletitle" translatable="false"><u>Recycle Bin</u></string>
     <string name="contrecycle" translatable="false">You can recover the cards that you have accidentally deleted or recover cards that you need to remember again!</string>
-    <string name="recyclerecuperar" translatable="false"><u>Recover</u></string>
-    <string name="recycledelete" translatable="false"><u>Delete</u></string>
+    <string name="recyclerecuperar" translatable="false">Recover</string>
+    <string name="recycledelete" translatable="false">Delete</string>
+    <string name="recycleCardName" translatable="false">You removed:</string>
 
     <string name="action_settings">Settings</string>
     <string name="action_groups" translatable="false">groups CRUD</string>
+
+    <string name="menu_papelera" translatable="false">Recycle Bin</string>
 </resources>

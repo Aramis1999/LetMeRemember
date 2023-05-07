@@ -52,14 +52,6 @@ class activity_menu_grupos : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_logout -> {
-                FirebaseAuth.getInstance().signOut().also {
-                    val intent = Intent(this@activity_menu_grupos, homeActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                }
-                return true
-            }
             R.id.action_groups -> {
                 val intent = Intent(this@activity_menu_grupos, GroupActivity::class.java)
                 startActivity(intent)
@@ -72,5 +64,13 @@ class activity_menu_grupos : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         val navController = findNavController(R.id.nav_host_fragment_content_activity_menu_grupos)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    fun logout(item: MenuItem) {
+        FirebaseAuth.getInstance().signOut().also {
+            val intent = Intent(this@activity_menu_grupos, homeActivity::class.java)
+            startActivity(intent)
+            finish()
+        }
     }
 }
