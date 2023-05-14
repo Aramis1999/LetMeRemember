@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.app.DownloadManager.Query
 import android.content.DialogInterface
 import android.content.Intent
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -15,6 +16,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.letmeremember.AdaptadorGroup
+import com.example.letmeremember.alarms.AlarmClass
+import com.example.letmeremember.helper.Helper
 import com.example.letmeremember.models.Group
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.firebase.database.DataSnapshot
@@ -44,7 +47,7 @@ class GroupActivity : AppCompatActivity() {
             override fun onItemClick(adapterView: AdapterView<*>?, view: View, i: Int, l: Long) {
                 val intent = Intent(getBaseContext(), AddGroupActivity::class.java)
                 intent.putExtra("accion", "e") // Editar
-                intent.putExtra("key", personas!![i].key)
+                intent.putExtra("key", personas!![i].idGroup.toString())
                 intent.putExtra("nombre", personas!![i].nombre)
                 startActivity(intent)
             }
@@ -66,8 +69,43 @@ class GroupActivity : AppCompatActivity() {
                     .setTitle("Confirmación")
                 ad.setPositiveButton("Si"
                 ) { dialog, id ->
-                    personas!![position].nombre?.let {
-                        refNotas.child(it).removeValue()
+                    personas!![position]?.let {
+                        if (it != null){
+                            refAlarms.orderByChild("groupId").equalTo(it.idGroup).addListenerForSingleValueEvent(object : ValueEventListener {
+                                override fun onDataChange(dataSnapshot: DataSnapshot) {
+                                    for (snapshot in dataSnapshot.children) {
+
+                                        if (snapshot.getValue(AlarmClass::class.java) != null) {
+                                            var alarm = snapshot.getValue(AlarmClass::class.java)
+                                            var helper = Helper()
+                                            if (alarm != null) {
+                                                alarm.id1?.let { it1 ->
+                                                    helper.cancelAlarm(this@GroupActivity,
+                                                        it1.toInt())
+                                                }
+                                                alarm.id2?.let { it1 ->
+                                                    helper.cancelAlarm(this@GroupActivity,
+                                                        it1.toInt())
+                                                }
+                                                alarm.id3?.let { it1 ->
+                                                    helper.cancelAlarm(this@GroupActivity,
+                                                        it1.toInt())
+                                                }
+
+                                                alarm.groupId?.let { it1 ->
+
+                                                    refNotas.child(it1).removeValue()
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                override fun onCancelled(databaseError: DatabaseError) {
+                                    // Getting Post failed, log a message
+                                    Toast.makeText(applicationContext,"Error al obtener el ultimo id de alarma", Toast.LENGTH_SHORT).show()
+                                }
+                            })
+                        }
                     }
                     Toast.makeText(
                         this@GroupActivity,
@@ -104,7 +142,7 @@ class GroupActivity : AppCompatActivity() {
                 personas!!.removeAll(personas!!)
                 for (dato in dataSnapshot.getChildren()) {
                     val persona: Group? = dato.getValue(Group::class.java)
-                    persona?.key(dato.key)
+                    persona?.setId(dato.key)
                     if (persona != null) {
                         personas!!.add(persona)
                     }
@@ -123,5 +161,6 @@ class GroupActivity : AppCompatActivity() {
     companion object {
         var database: FirebaseDatabase = FirebaseDatabase.getInstance()
         var refNotas: DatabaseReference = database.getReference("groups")
+        var refAlarms: DatabaseReference = database.getReference("alarms")
     }
 }

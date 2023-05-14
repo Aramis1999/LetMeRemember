@@ -41,6 +41,9 @@
     <string name="groupEditTitle" translatable="false">Editar grupo</string>
     <string name="groupName" translatable="false">nombre</string>
     <string name="groupCreateButton" translatable="false">Enviar</string>
+    <string name="AlarmGroup" translatable="false">Alarma de grupo: </string>
+    <string name="stopAlarm" translatable="false">Detener alarma</string>
+    <string name="stopAlarmAndLeaveButton" translatable="false">Detener alarma y salir</string>
 
     <!--    Recycle Bin-->
     <string name="recycletitle" translatable="false">Papelera de Reciclaje</string>
