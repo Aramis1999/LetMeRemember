@@ -4,6 +4,7 @@ class Group {
     fun key(key: String?) {
     }
     var nombre: String? = null
+    var idGroup: String? = null
     var key: String? = null
 
     var not: MutableMap<String, Boolean> = HashMap()
@@ -18,5 +19,13 @@ class Group {
             "key" to key,
             "not" to not
         )
+    }
+
+    fun setId(id: String?) {
+        this.idGroup = id
+    }
+
+    fun getId(): String? {
+        return idGroup
     }
 }
