@@ -9,10 +9,11 @@
 
     <FrameLayout
         android:layout_width="0dp"
-        android:layout_height="66dp"
+        android:layout_height="70dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="1dp"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,13 +23,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="5dp"
             android:text="grupo"
             android:textColor="@color/black"
-            android:textSize="24sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@+id/imagenProd"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/recuperar_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:backgroundTint="@android:color/white"
+            android:text="Modificar"
+            android:textColor="@color/black"
+            android:textSize="10sp"
+            android:translationX="25dp"
+            android:translationY="33dp" />
+
+        <Button
+            android:id="@+id/eliminar_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:backgroundTint="@android:color/white"
+            android:text="@string/recycledelete"
+            android:textColor="@color/black"
+            android:textSize="11sp"
+            android:translationX="125dp"
+            android:translationY="33dp" />
 
         <TextView
             android:id="@+id/lvlRetencion"
@@ -39,7 +62,7 @@
             android:text="Retención"
             android:textColor="@color/black"
             android:textStyle="normal"
-            android:translationX="300dp"
+            android:translationX="280dp"
             android:translationY="-20dp"
             app:layout_constraintStart_toEndOf="@+id/imagenProd"
             app:layout_constraintTop_toTopOf="parent" />
@@ -52,7 +75,7 @@
             android:textAlignment="viewEnd"
             android:textColor="@color/black"
             android:textSize="34sp"
-            android:translationX="325dp"
+            android:translationX="280dp"
             android:translationY="20dp"
             app:layout_constraintStart_toStartOf="@+id/nombre_Grupo"
             app:layout_constraintTop_toBottomOf="@+id/nombre_Grupo" />

@@ -102,7 +102,7 @@ class AddGroupActivity : AppCompatActivity() {
 
         database=FirebaseDatabase.getInstance().getReference("groups")
 // Se forma objeto persona
-        val persona = Group(nombre)
+        val persona = Group(nombre,nombre,true,nombre,nombre)
         var helper = Helper()
         if (accion == "a") { //Agregar registro
 
