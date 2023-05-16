@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.letmeremember.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.example.letmeremember.ui.papelera.PapeleraFragment"
+        android:label="@string/menu_papelera"
+        tools:layout="@layout/fragment_papelera" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.example.letmeremember.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+
+    <fragment
+        android:id="@+id/nav_recordatorios"
+        android:name="com.example.letmeremember.ui.home.RecordatorioFragment"
+        android:label="@string/menu_recordatorio"
+        tools:layout="@layout/fragment_recordatorio" />
+    <fragment
+        android:id="@+id/nav_AddRecordatorios"
+        android:name="com.example.letmeremember.AddReminder"
+        android:label="Formulario recordatorio"
+        tools:layout="@layout/fragment_add_reminder" />
+
+    <fragment
+        android:id="@+id/nav_createHome"
+        android:name="com.example.letmeremember.ui.home.CreateHomeFragment"
+        android:label="fragment_create_home"
+        tools:layout="@layout/fragment_create_home" />
+</navigation>
