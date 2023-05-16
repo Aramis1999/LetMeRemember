@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.letmeremember.R
 import com.example.letmeremember.databinding.FragmentPapeleraBinding
+import com.example.letmeremember.databinding.FragmentRecordatorioBinding
 import com.example.letmeremember.models.Trash
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
@@ -31,7 +32,7 @@ class PapeleraFragment : Fragment(), SearchView.OnQueryTextListener  {
 //    get the reminders for the current user and only with isActive false and order them by date
     var query: com.google.firebase.database.Query =  refReminders.orderByChild("userId").equalTo(auth.currentUser?.uid)
     // This property is only valid between onCreateView and onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentPapeleraBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -39,7 +40,7 @@ class PapeleraFragment : Fragment(), SearchView.OnQueryTextListener  {
         savedInstanceState: Bundle?
     ): View {
 
-        _binding = FragmentPapeleraBinding.inflate(inflater, container, false)
+        binding = FragmentPapeleraBinding.inflate(inflater, container, false)
         dataList = ArrayList()
         val root: View = binding.root
         return root
@@ -62,6 +63,9 @@ class PapeleraFragment : Fragment(), SearchView.OnQueryTextListener  {
                             listaPapelera.add(Papelera)
                         }
                     }
+                }
+                if (context == null){
+                    return
                 }
                 recyclerView = binding.recyclerViewPapeleraList
                 recyclerView.layoutManager = LinearLayoutManager(activity)

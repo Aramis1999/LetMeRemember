@@ -29,6 +29,12 @@
         android:label="@string/menu_recordatorio"
         tools:layout="@layout/fragment_recordatorio" />
     <fragment
+        android:id="@+id/nav_AddRecordatorios"
+        android:name="com.example.letmeremember.AddReminder"
+        android:label="Formulario recordatorio"
+        tools:layout="@layout/fragment_add_reminder" />
+
+    <fragment
         android:id="@+id/nav_createHome"
         android:name="com.example.letmeremember.ui.home.CreateHomeFragment"
         android:label="fragment_create_home"
