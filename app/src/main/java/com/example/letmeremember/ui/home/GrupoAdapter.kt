@@ -11,10 +11,13 @@ import android.widget.ArrayAdapter
 import android.widget.Filter
 import android.widget.Filterable
 import android.widget.Toast
+import androidx.annotation.NonNull
+import androidx.annotation.Nullable
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.os.bundleOf
 import androidx.navigation.Navigation
+import androidx.navigation.NavigatorState
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.letmeremember.GroupActivity
@@ -120,14 +123,24 @@ class GrupoAdapter(private val context: Context, private val listaGrupos: Mutabl
                 //ref.removeValue()
             }
 
-            if(grupo.getPercent() == "10")  itemView.setBackgroundResource(R.drawable.round_shape_red)
+            binding.modificarBtn.setOnClickListener {
+                val navController = (context as AppCompatActivity).findNavController(R.id.nav_host_fragment_content_activity_menu_grupos)
+                val bundle = Bundle()
+                bundle.putString("key",grupo.getId())
+                bundle.putString("nombre",grupo.getNombre())
+                navController.navigate(R.id.nav_createHome, bundle)
+            }
+
+            if(grupo.getPercent() == "0")  itemView.setBackgroundResource(R.drawable.round_shape_red)
             if(grupo.getPercent() == "60")  itemView.setBackgroundResource(R.drawable.round_shape_yellow)
             if(grupo.getPercent() == "100")  itemView.setBackgroundResource(R.drawable.round_shape)
 
             // Set click listener on the item view
             itemView.setOnClickListener {
                 val navController = (context as AppCompatActivity).findNavController(R.id.nav_host_fragment_content_activity_menu_grupos)
-                val bundle = bundleOf("listaGrupos" to listaGrupos.toTypedArray())
+                //val bundle = bundleOf("listaGrupos" to listaGrupos.toTypedArray())
+                val bundle = Bundle()
+                bundle.putString("idGrupo",grupo.getId())
                 navController.navigate(R.id.nav_recordatorios, bundle)
             }
 

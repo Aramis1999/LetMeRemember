@@ -13,11 +13,10 @@ class Group {
     var not: MutableMap<String, Boolean> = HashMap()
 
     constructor() {}
-    constructor(nombre: String?,userId: String?,isActive: Boolean?,idGroup: String?,percent: String?) {
+    constructor(nombre: String?,userId: String?,isActive: Boolean?,percent: String?) {
         this.nombre = nombre
         this.userId = userId
         this.isActive = isActive
-        this.idGroup = idGroup
         this.percent = percent
     }
     fun toMap(): Map<String, Any?> {

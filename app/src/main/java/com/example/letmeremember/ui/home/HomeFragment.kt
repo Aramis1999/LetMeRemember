@@ -4,27 +4,17 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.SearchView
-import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.letmeremember.AddGroupActivity
 import com.example.letmeremember.R
 import com.example.letmeremember.databinding.FragmentHomeBinding
-import com.example.letmeremember.databinding.FragmentPapeleraBinding
 import com.example.letmeremember.models.Group
-import com.example.letmeremember.models.Trash
-import com.example.letmeremember.ui.papelera.PapeleraAdapter
-import com.example.letmeremember.ui.papelera.PapeleraFragment
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.ValueEventListener
-import com.google.android.material.floatingactionbutton.FloatingActionButton
-import android.content.Intent
 import com.google.firebase.database.*
+
 class HomeFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private var _binding: FragmentHomeBinding? = null
@@ -34,10 +24,11 @@ class HomeFragment : Fragment(), SearchView.OnQueryTextListener {
 
     private lateinit var dataList: List<Group>
     private lateinit var searchView: SearchView
+    private lateinit var buttonAgree: View
     private var auth: FirebaseAuth = FirebaseAuth.getInstance()
     var query: com.google.firebase.database.Query =  refGrupos.orderByChild("userId").equalTo(auth.currentUser?.uid)
     // This property is only valid between onCreateView and onDestroyView.
-    private val binding get() = _binding!!
+    private lateinit var binding: FragmentHomeBinding
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -46,7 +37,7 @@ class HomeFragment : Fragment(), SearchView.OnQueryTextListener {
     ): View {
         //homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
         dataList = ArrayList()
         val root: View = binding.root
 
@@ -58,6 +49,15 @@ class HomeFragment : Fragment(), SearchView.OnQueryTextListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         searchView = view.findViewById(R.id.searchView)
+        buttonAgree = view.findViewById(R.id.fab_agregar)
+
+        buttonAgree.setOnClickListener {
+            val navController = (context as AppCompatActivity).findNavController(R.id.nav_host_fragment_content_activity_menu_grupos)
+            val bundle = Bundle()
+            bundle.putString("accion","a")
+            navController.navigate(R.id.nav_createHome, bundle)
+        }
+
         searchView.setOnQueryTextListener(this)
 
 
@@ -74,6 +74,9 @@ class HomeFragment : Fragment(), SearchView.OnQueryTextListener {
                         }
                     }
                 }
+                if(context == null){
+                    return
+                }
                 recyclerView = binding.recyclerViewGroupList
                 recyclerView.layoutManager = LinearLayoutManager(activity)
                 grupoAdapter = GrupoAdapter(requireContext(), listaGrupos)
@@ -85,6 +88,7 @@ class HomeFragment : Fragment(), SearchView.OnQueryTextListener {
                 }
             })
         }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
