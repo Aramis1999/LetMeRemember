@@ -22,7 +22,7 @@ class AdaptadorGroup(private val context: Activity, var notas: List<Group>):
         rowview = view ?: layoutInflater.inflate(R.layout.group_layout, null)
         val tvNombre = rowview!!.findViewById<TextView>(R.id.tvNombre)
 
-        tvNombre.text = notas[position].nombre
+        tvNombre.text = notas[position].getNombre()
         return rowview
     }
 }

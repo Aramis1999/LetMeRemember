@@ -9,9 +9,10 @@ import java.util.*
 
 class Helper {
 
-    fun createAlarm(context: Context,min:Long,cardName:String,requestCode:Int){
+    fun createAlarm(context: Context,min:Long,cardName:String,key: String,requestCode:Int){
         var i = Intent(context, NotificationReceiver::class.java)
         i.putExtra("name",cardName)
+        i.putExtra("key",key)
         var pi = PendingIntent.getBroadcast(context, requestCode    , i, PendingIntent.FLAG_IMMUTABLE)
         var am = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
         am.set(AlarmManager.RTC_WAKEUP, Calendar.getInstance().timeInMillis + (min*60000), pi)

@@ -13,6 +13,7 @@ import com.example.letmeremember.models.Group
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.example.letmeremember.helper.Helper
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.ValueEventListener
@@ -26,6 +27,7 @@ class AddGroupActivity : AppCompatActivity() {
     lateinit var title : TextView
     var lastId by Delegates.notNull<Long>()
     private var alarm :AlarmClass? = null
+    private var auth: FirebaseAuth = FirebaseAuth.getInstance()
 
     private lateinit var database:DatabaseReference
 
@@ -102,16 +104,16 @@ class AddGroupActivity : AppCompatActivity() {
 
         database=FirebaseDatabase.getInstance().getReference("groups")
 // Se forma objeto persona
-        val persona = Group(nombre)
+        val persona = Group(nombre,auth.currentUser?.uid.toString(),true,nombre)
         var helper = Helper()
         if (accion == "a") { //Agregar registro
 
             var key = helper.generateUniqueCode(10)
             database.child(key).setValue(persona).addOnSuccessListener {
 
-                helper.createAlarm(this,1,nombre,(lastId+1).toInt())
-                helper.createAlarm(this,2,nombre,(lastId+2).toInt())
-                helper.createAlarm(this,3,nombre,(lastId+3).toInt())
+                helper.createAlarm(this,1,nombre,key,(lastId+1).toInt())
+                helper.createAlarm(this,2,nombre,key,(lastId+2).toInt())
+                helper.createAlarm(this,3,nombre,key,(lastId+3).toInt())
                 val AlarmObject = Alarm(key,lastId+1,lastId+2,lastId+3)
                 refAlarms.child(key).setValue(AlarmObject)
                 Toast.makeText(this,"Se guardo con exito", Toast.LENGTH_SHORT).show()
@@ -129,9 +131,9 @@ class AddGroupActivity : AppCompatActivity() {
             helper.cancelAlarm(this,alarm!!.id3!!.toInt())
             val refGroups=database.child(key)
             refGroups.child("nombre").setValue(nombre)
-            helper.createAlarm(this,1,nombre,(lastId+1).toInt())
-            helper.createAlarm(this,5,nombre,(lastId+2).toInt())
-            helper.createAlarm(this,10,nombre,(lastId+3).toInt())
+            helper.createAlarm(this,1,nombre,key,(lastId+1).toInt())
+            helper.createAlarm(this,5,nombre,key,(lastId+2).toInt())
+            helper.createAlarm(this,10,nombre,key,(lastId+3).toInt())
             Toast.makeText(this,"Se actualizo con exito", Toast.LENGTH_SHORT).show()
         }
         finish()
