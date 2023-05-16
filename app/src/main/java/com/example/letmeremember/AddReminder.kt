@@ -28,6 +28,7 @@ class AddReminder : Fragment() {
     private var title = ""
     private var body = ""
     private var accion = ""
+    private var idGrupo= ""
 
 
     private val binding get() = _binding!!
@@ -48,7 +49,9 @@ class AddReminder : Fragment() {
         title = arguments?.getString("titulo").toString()
         body = arguments?.getString("contenido").toString()
         accion = arguments?.getString("accion").toString()
+        idGrupo = arguments?.getString("idGrupo").toString()
         Log.d("Accion",accion)
+        Log.d("Grupo",idGrupo)
         Log.d("key",key)
         _binding = FragmentAddReminderBinding.inflate(inflater, container, false)
         val root: View = binding.root
@@ -68,14 +71,14 @@ class AddReminder : Fragment() {
             if (accion == "add"){
                 var helper = Helper()
                 var llave = helper.generateUniqueCode(10)
-                val reminder = Reminder(llave,"6SXsQNMEdl", binding.titulo.text.toString(), binding.descripcion.text.toString(), auth.currentUser?.uid, true, "")
+                val reminder = Reminder(llave,idGrupo, binding.titulo.text.toString(), binding.descripcion.text.toString(), auth.currentUser?.uid, true, "")
                 refReminders.child(llave).setValue(reminder).addOnSuccessListener {
                     Toast.makeText(activity,"Se guardo con exito", Toast.LENGTH_SHORT).show()
                 }
                 Log.d("btnEnviar", "agrega")
             }
             if (accion == "edit"){
-                val reminder = Reminder(key,"6SXsQNMEdl", binding.titulo.text.toString(), binding.descripcion.text.toString(), auth.currentUser?.uid, true, "")
+                val reminder = Reminder(key,idGrupo, binding.titulo.text.toString(), binding.descripcion.text.toString(), auth.currentUser?.uid, true, "")
                 refReminders.child(key).setValue(reminder).addOnSuccessListener {
                     //Toast.makeText(activity,"Se edito con exito", Toast.LENGTH_SHORT).show()
                     Log.d("btnEnviar", "succes")

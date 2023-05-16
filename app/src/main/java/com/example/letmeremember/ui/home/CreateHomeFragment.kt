@@ -160,6 +160,8 @@ class CreateHomeFragment : Fragment() {
                 val AlarmObject = Alarm(key,lastId+1,lastId+2,lastId+3)
                 AddGroupActivity.refAlarms.child(key).setValue(AlarmObject)
                 Toast.makeText(activity,"Se guardo con exito", Toast.LENGTH_SHORT).show()
+                val fragmentManager = requireActivity().supportFragmentManager
+                fragmentManager.popBackStack()
             }.addOnFailureListener{
                 Toast.makeText(activity,"Failed ", Toast.LENGTH_SHORT).show()
             }
@@ -174,10 +176,13 @@ class CreateHomeFragment : Fragment() {
             helper.cancelAlarm(requireContext(),alarm!!.id3!!.toInt())
             val refGroups=refGroup.child(key.toString())
             refGroups.child("nombre").setValue(nombre)
+            refGroups.child("percent").setValue("0")
             helper.createAlarm(requireContext(),1,nombre,key.toString(),(lastId+1).toInt())
             helper.createAlarm(requireContext(),5,nombre,key.toString(),(lastId+2).toInt())
             helper.createAlarm(requireContext(),10,nombre,key.toString(),(lastId+3).toInt())
             Toast.makeText(activity,"Se actualizo con exito", Toast.LENGTH_SHORT).show()
+            val fragmentManager = requireActivity().supportFragmentManager
+            fragmentManager.popBackStack()
         }
     }
 

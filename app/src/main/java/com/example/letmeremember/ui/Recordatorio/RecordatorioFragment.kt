@@ -21,7 +21,7 @@ import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class RecordatorioFragment : Fragment(),  SearchView.OnQueryTextListener{
+class RecordatorioFragment : Fragment(){
 
     private var _binding: FragmentRecordatorioBinding? = null
     private lateinit var recyclerView: RecyclerView
@@ -30,6 +30,7 @@ class RecordatorioFragment : Fragment(),  SearchView.OnQueryTextListener{
     private lateinit var searchView: SearchView
     private lateinit var dataList: List<Reminder>
     private lateinit var homeViewModel: HomeViewModel
+    private lateinit var idGrupo: String
 
     var query: com.google.firebase.database.Query =  refReminders.orderByChild("userId").equalTo(auth.currentUser?.uid)
 
@@ -47,6 +48,7 @@ class RecordatorioFragment : Fragment(),  SearchView.OnQueryTextListener{
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         binding = FragmentRecordatorioBinding.inflate(inflater, container, false)
         dataList = ArrayList()
+        idGrupo = arguments?.getString("idGrupo") ?: ""
         val root: View = binding.root
         return root
     }
@@ -54,14 +56,15 @@ class RecordatorioFragment : Fragment(),  SearchView.OnQueryTextListener{
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         searchView = view.findViewById(R.id.searchView)
-        searchView.setOnQueryTextListener(this)
 
         binding.btnAgregarRecordatorio.setOnClickListener{
             val navController = (context as AppCompatActivity).findNavController(R.id.nav_host_fragment_content_activity_menu_grupos)
             val bundle = Bundle()
             bundle.putString("accion", "add")
+            bundle.putString("idGrupo",idGrupo)
             navController.navigate(R.id.nav_AddRecordatorios,bundle)
         }
+        val argumentsString = "";
 
         if (binding==null){
             return
@@ -74,7 +77,7 @@ class RecordatorioFragment : Fragment(),  SearchView.OnQueryTextListener{
                     val id = snapshot.key
                     Recordatorio?.setKey(id)
                     if (Recordatorio != null) {
-                        if (Recordatorio.getIsActive() == true) {
+                        if (Recordatorio.getIsActive() == true && Recordatorio.getGroupId() == idGrupo) {
                             listaRecordarorio.add(Recordatorio)
                         }
                     }
@@ -106,21 +109,20 @@ class RecordatorioFragment : Fragment(),  SearchView.OnQueryTextListener{
         inflater.inflate(R.menu.search_menu, menu)
         val searchItem = menu.findItem(R.id.action_search)
         searchView = searchItem.actionView as SearchView
-        searchView.setOnQueryTextListener(this)
         super.onCreateOptionsMenu(menu, inflater)
     }
 
-    override fun onQueryTextSubmit(query: String?): Boolean {
-        // Perform search query here
+//    override fun onQueryTextSubmit(query: String?): Boolean {
+//        // Perform search query here
+//
+//        return false
+//    }
 
-        return false
-    }
-
-    override fun onQueryTextChange(newText: String?): Boolean {
-        // Update search results as user types
-        RecordatorioAdapter.filter(newText)
-        return true
-    }
+//    override fun onQueryTextChange(newText: String?): Boolean {
+//        // Update search results as user types
+//        RecordatorioAdapter.filter(newText)
+//        return true
+//    }
     companion object {
         var database: FirebaseDatabase = FirebaseDatabase.getInstance()
         var refReminders: DatabaseReference = database.getReference("reminders")
