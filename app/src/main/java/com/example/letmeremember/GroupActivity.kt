@@ -47,8 +47,8 @@ class GroupActivity : AppCompatActivity() {
             override fun onItemClick(adapterView: AdapterView<*>?, view: View, i: Int, l: Long) {
                 val intent = Intent(getBaseContext(), AddGroupActivity::class.java)
                 intent.putExtra("accion", "e") // Editar
-                intent.putExtra("key", personas!![i].idGroup.toString())
-                intent.putExtra("nombre", personas!![i].nombre)
+                intent.putExtra("key", personas!![i].getId().toString())
+                intent.putExtra("nombre", personas!![i].getNombre())
                 startActivity(intent)
             }
         })
@@ -71,7 +71,7 @@ class GroupActivity : AppCompatActivity() {
                 ) { dialog, id ->
                     personas!![position]?.let {
                         if (it != null){
-                            refAlarms.orderByChild("groupId").equalTo(it.idGroup).addListenerForSingleValueEvent(object : ValueEventListener {
+                            refAlarms.orderByChild("groupId").equalTo(it.getId()).addListenerForSingleValueEvent(object : ValueEventListener {
                                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                                     for (snapshot in dataSnapshot.children) {
 
